@@ -1,7 +1,9 @@
 export default definePreset({
 	name: 'eslint-vue',
 	handler: async() => {
-		await extractTemplates(),
+		await extractTemplates({
+			extractDotFiles: true
+		}),
 
 		await editFiles({
 			title: 'Add lint scripts',
