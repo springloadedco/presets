@@ -5,7 +5,7 @@ export default definePreset({
 		await extractTemplates(),
 		await installPackages({
 			for: 'php',
-			packages: ['friendsofphp/php-cs-fixer'],
+			packages: ['friendsofphp/php-cs-fixer:*'],
 			dev: true,
 		})
 	},
