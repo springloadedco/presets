@@ -4,8 +4,7 @@ module.exports = {
     'plugin:prettier/recommended',
     'plugin:vue/vue3-essential',
     '@vue/eslint-config-typescript/recommended',
-    '@vue/eslint-config-prettier',
-    'plugin:storybook/recommended'
+    '@vue/eslint-config-prettier'
   ],
   plugins: ['no-relative-import-paths', 'unused-imports'],
   rules: {
