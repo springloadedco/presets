@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "author": "Owen Conti <owen@springloaded.co>",
+  "license": "MIT",
+  "preset": "preset.ts",
+  "devDependencies": {
+    "@preset/core": "^0.11.2",
+    "@types/node": "^20.11.19"
+  }
+}

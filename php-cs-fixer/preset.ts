@@ -4,7 +4,7 @@ export default definePreset({
 	handler: async() => {
 		await extractTemplates({
 			extractDotFiles: true
-		}),
+		})
 		await installPackages({
 			for: 'php',
 			packages: ['friendsofphp/php-cs-fixer:*'],
