@@ -1,4 +1,4 @@
-# @@NAME
+# @@name
 
 This preset can be used to ...
 
@@ -7,5 +7,5 @@ This preset can be used to ...
 Run the following from the root of the repo:
 
 ```
-preset apply springloadedco/presets --path @@NAME
+preset apply springloadedco/presets --path @@name
 ```

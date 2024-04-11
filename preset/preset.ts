@@ -9,16 +9,17 @@ export default definePreset({
 		}
 
 		await extractTemplates({
+			to: name,
 			extractDotFiles: true
 		})
 
 		await editFiles({
 			title: 'Update name of preset in preset.ts',
-			files: ['preset.ts', 'README.md'],
+			files: [`${name}/preset.ts`, `${name}/README.md`],
 			operations: {
 				type: 'replace-variables',
 				variables: {
-					'NAME': name,
+					name,
 				},
 			},
 		})
