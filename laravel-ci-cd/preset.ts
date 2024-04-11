@@ -8,8 +8,8 @@ export default definePreset({
 			from: '.env.ci',
 		}),
 		await extractTemplates({
-			from: 'setup-php-node.yml',
-			to: '.github/actions'
+			from: 'setup-php-node',
+			to: '.github/actions/setup-php-node'
 		}),
 		await extractTemplates({
 			from: 'ci-cd-workflow.yml',

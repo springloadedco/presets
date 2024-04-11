@@ -17,6 +17,8 @@ jobs:
           POSTGRES_USER: postgres
           POSTGRES_DB: laravel_testing
           TZ: "UTC"
+        ports:
+          - 5432:5432
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -44,6 +46,22 @@ jobs:
     name: Run Lint
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_USER: postgres
+          POSTGRES_DB: laravel_testing
+          TZ: "UTC"
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
@@ -51,8 +69,8 @@ jobs:
       - name: Setup PHP and Node
         uses: ./.github/actions/setup-php-node
 
-      - name: Run eslint
-        run: npm run eslint-fix
+      - name: Run lint
+        run: npm run lint-fix
 
       - name: Run PHP CS Fixer
         run: composer fix
@@ -62,8 +80,8 @@ jobs:
           add: '*.php *.tsx *.ts *.js'
           message: 'chore(style): Apply lint fix changes'
 
+      - name: Build assets
+        run: npm run build
+
       - name: Run compile
         run: npm run compile
-
-      - name: Build assets
-        run: npm run production

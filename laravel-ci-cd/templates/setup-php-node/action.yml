@@ -3,6 +3,7 @@ description: 'Reusable workflow to setup PHP and Node'
 
 runs:
   using: 'composite'
+
   steps:
     - name: Cancel Previous Run
       uses: styfle/cancel-workflow-action@0.6.0
@@ -15,7 +16,7 @@ runs:
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: 8.1
+        php-version: 8.3
         extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, mysql, mysqli, pdo_mysql, bcmath, soap, intl, gd, exif, iconv, imagick
         coverage: none
 
@@ -40,6 +41,10 @@ runs:
         key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
         restore-keys: ${{ runner.os }}-npm-
 
+    - name: Copy .env file
+      shell: bash
+      run: cp .env.ci .env
+
     - name: Install Composer Dependencies
       shell: bash
       run: composer install
@@ -51,7 +56,10 @@ runs:
     - name: Configure application
       shell: bash
       run: |
-        cp .env.ci .env
         php artisan cache:clear
         php artisan config:clear
         php artisan key:generate
+
+    - name: Generate Hybridly types
+      shell: bash
+      run: php artisan hybridly:types
