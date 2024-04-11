@@ -23,5 +23,12 @@ export default definePreset({
 				},
 			},
 		})
+
+		await installPackages({
+			for: 'node',
+			type: 'install',
+			dev: true,
+			additionalArgs: ['--prefix', name]
+		})
 	}
 })
