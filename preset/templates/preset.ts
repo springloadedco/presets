@@ -1,5 +1,4 @@
 export default definePreset({
-	name: '@@name',
-	handler: async() => {
-	},
-})
+  name: '@@name',
+  handler: async () => {}
+});
