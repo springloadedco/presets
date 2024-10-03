@@ -4,7 +4,6 @@
 // Usage: php-cs-fixer fix app
 
 $finder = PhpCsFixer\Finder::create()
-    ->in(__DIR__)
     ->exclude(['bootstrap', 'storage', 'vendor', 'spec', 'nova', 'ssh', 'public', 'database/migrations'])
     ->name('*.php')
     ->name('_ide_helper')
