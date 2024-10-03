@@ -1,5 +1,5 @@
 export default definePreset({
-  name: 'eslint-vue',
+  name: 'eslint-react',
   handler: async () => {
     await extractTemplates({
       extractDotFiles: true
@@ -11,8 +11,8 @@ export default definePreset({
         type: 'edit-json',
         merge: {
           scripts: {
-            lint: './node_modules/.bin/eslint --ext .ts,.vue resources/',
-            'lint-fix': './node_modules/.bin/eslint --fix --ext .ts,.vue resources/'
+            lint: './node_modules/.bin/eslint --ext .ts,.tsx resources/',
+            'lint-fix': './node_modules/.bin/eslint --fix --ext .ts,.tsx resources/'
           }
         }
       }
@@ -24,14 +24,18 @@ export default definePreset({
       packages: [
         '@typescript-eslint/eslint-plugin',
         '@typescript-eslint/parser',
-        '@vue/eslint-config-prettier',
-        '@vue/eslint-config-typescript',
         'eslint',
-        'eslint-plugin-no-relative-import-paths',
-        'eslint-plugin-unused-imports',
+        'eslint-config-prettier',
+        'eslint-config-standard',
+        'eslint-import-resolver-alias',
+        'eslint-plugin-import',
+        'eslint-plugin-node',
+        'eslint-plugin-prettier',
+        'eslint-plugin-promise',
+        'eslint-plugin-react',
+        'eslint-plugin-react-hooks',
         'prettier',
-        'prettier-plugin-tailwindcss',
-        'typescript'
+        'prettier-plugin-tailwindcss'
       ]
     });
   }
