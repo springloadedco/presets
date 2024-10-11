@@ -31,9 +31,9 @@ export default definePreset({
         'eslint-plugin-import',
         'eslint-plugin-node',
         'eslint-plugin-prettier',
-        'eslint-plugin-promise',
         'eslint-plugin-react',
         'eslint-plugin-react-hooks',
+        'eslint-plugin-unused-imports',
         'prettier',
         'prettier-plugin-tailwindcss'
       ]
