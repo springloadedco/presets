@@ -16,7 +16,19 @@ export default definePreset({
     });
     await applyNestedPreset({
       preset: 'springloadedco/presets',
+      args: ['--path', 'php-cs-fixer']
+    });
+    await applyNestedPreset({
+      preset: 'springloadedco/presets',
       args: ['--path', 'laravel-docker']
+    });
+    await applyNestedPreset({
+      preset: 'springloadedco/presets',
+      args: ['--path', 'eslint-react']
+    });
+    await applyNestedPreset({
+      preset: 'springloadedco/presets',
+      args: ['--path', 'laravel-ci-cd']
     });
   }
 });
